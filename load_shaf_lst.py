@@ -10,9 +10,10 @@ import os
 load_dotenv(Path('.') / '.env')
 my_user = os.getenv('user_name')
 my_pass = os.getenv('password')
+my_account = os.getenv('account')
 
 credentials = Credentials(username=my_user, password=my_pass)
-account = Account('PharmacyDeptRAH@seha.ae', credentials=credentials, autodiscover=True)
+account = Account(my_account, credentials=credentials, autodiscover=True)
 
 
 url = "https://shafafiyaportal.doh.gov.ae/dictionary/DrugCoding/Drugs.xlsx"
@@ -45,10 +46,10 @@ df.to_excel('Expiring Grace Codes.xlsx', sheet_name='Drugs', index=False)
 #         </body>
 #     </html>
 #     '''),
-#     to_recipients=[Mailbox(email_address='alhassan@seha.ae')
+#     to_recipients=[Mailbox(email_address='email@org.ae')
 #     ],
 
-#     cc_recipients=['mmughazi@seha.ae', 'ehekal@seha.ae'], 
+#     cc_recipients=['email@org.ae', 'email@org.ae'], 
 # )
 # my_file_1 = FileAttachment(name='Expiring Grace Codes.xlsx', content=open('Expiring Grace Codes.xlsx', 'rb').read())
 # m.attach(my_file_1)
